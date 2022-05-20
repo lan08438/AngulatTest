@@ -1,0 +1,391 @@
+/* margin-top: 29px;
+ */
+
+@font-face {
+    font-family: 'Inter-Bold';
+    src: url('./Inter-Bold.otf');
+}
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url('./Inter-Medium.otf');
+}
+@font-face {
+    font-family: 'Inter-Regular';
+    src: url('./Inter-Regular.otf');
+}
+
+
+* {
+    font-family: 'Inter-Medium';
+    font-size: 16px;
+    /* font-family: "Helvetica Neue","Helvetica Neue" */
+    /* font-family: 'HelveticaNeue-Bold' */
+}
+.page_Options{
+    margin-left: 61px;
+    margin-top: 55px;
+    position: absolute;
+    background: #F5F5F7;
+    height: calc(100% - 55px);
+    width: 241px;
+}
+
+
+
+
+ :host {
+    overflow: hidden;
+    height: 720px;
+    width: 1200px;
+    user-select: none;
+    position: absolute;
+    margin-top: 29px;
+}
+#UpdateProgressVersion {
+    color: rgba(255, 0, 0, 0);
+    font-size: 21px;
+    position: absolute;
+    top: 0;
+    left: 1%;
+    z-index: 9999;
+    font-style: oblique;
+    background: linear-gradient(45deg, #fff, #6828bd);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+.CenterAlignment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.KeyBoardAreaStyle {
+    height: 287px;
+    width: 100%;
+    box-sizing: border-box;
+    transform: scale(1);
+    margin-left: 26px;
+    margin-top: 126px;
+   /* background: rgb(255 0 0);
+    */
+}
+.KeyBoardGraphsStyle {
+    position: absolute;
+    height: 252px;
+    width: 596px;
+    margin-left: 0px;
+}
+.KeyBoard_Dis_Block {
+    display: flex;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    margin-left: 48px;
+    margin-top: 11px;
+    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12%;
+    opacity: 1;
+}
+.KeyBoard_Block {
+    display: flex;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    margin-left: 48px;
+    margin-top: 11px;
+    border-style: solid;
+    border-color: rgb(245,245,247);
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12%;
+    color: rgb(159, 163, 170);
+}
+
+.KeyBoardBindImg {
+    pointer-events: none;
+}
+#SharedPageContent {
+    position: unset;
+    BACKGROUND: rgb(245 245 247);
+    HEIGHT: 100%;
+    WIDTH: 100%;
+}
+.MiddlePanel{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 655px;
+    margin-left: 302px;
+    background: rgb(237 238 240);
+}
+
+.RightPanal{
+position: absolute;
+height: 100%;
+width: 243px;
+right: 0px;
+background: rgb(237 238 240);
+
+}
+
+.RightPanal::before {
+    content: "";
+    position: absolute;
+    height: 643px;
+    width: 1px;
+    margin-top: 52px;
+    background-color: #a2aa9f;
+}
+
+
+#SharedSelectList {
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: clip;
+    width: 90%;
+    position: absolute;
+}
+#SharedSelectList::-webkit-scrollbar-track {
+    background-repeat: no-repeat;
+}
+#SharedSelectList::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+   /* border: 1px solid yellow;
+    */
+    background-repeat: no-repeat;
+    background-color: rgba(42, 42, 42, 0);
+}
+#SharedSelectList::-webkit-scrollbar {
+    width: 16px;
+}
+.Shard_OptionItem {
+    color: #9fa3aa;
+    height: auto;
+    line-height: 25px;
+    width: 96%;
+    margin-left: 2%;
+}
+.ApplyBtn {
+    position: absolute;
+    width: 153px;
+    display: flex;
+    height: 38px;
+    justify-content: center;
+    align-items: center;
+    color: #1240a2;
+    border: 1px solid #1240a2;
+    font-family: 'Inter-regular';
+    font-size: 14px;
+}
+
+.PageApplyBtn {
+    color: rgb(18, 64, 162);
+    background: transparent;
+    border: 1px solid rgb(18,64,162);
+    transform: scale(1);
+} 
+.PageApplyBtn:hover {
+    color: rgb(248,248,248);
+    background: rgb(29,52,96);
+    border: 1px solid rgb(29,52,96);
+
+} 
+.PageApplyBtn:active {
+    color: rgb(248,248,248);
+    background: rgb(29,52,96);
+    border: 1px solid rgb(29,52,96);
+    transform: scale(0.97);
+    box-shadow: 1px 1px 5px 0px rgba(50, 50, 50, 0.75);
+
+} 
+
+
+
+
+input[type=checkbox] {
+    margin: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #1D3460;
+    /* border-radius: 50%; */
+    width: 14.5px;
+    height: 14.5px;
+}
+
+
+
+input[type=radio] {
+    margin: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #1d3460;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+}
+input[type=radio]:checked {
+    background: radial-gradient(closest-side, rgb(29 52 96) 70%, rgb(0 0 0 / 0%) 30%);
+}
+input[type="range"] {
+    -webkit-appearance: none;
+   /* background: -webkit-linear-gradient(#2e9cfb, #2e9cfb) no-repeat, #606060;
+    background-size: 0 100%;
+    */
+    background: #1d3460;
+    width: 200px;
+    height: 7px;
+    border-radius: 15px;
+}
+input[type="range"]:focus {
+    outline: none;
+}
+/* input[type="range"]::-webkit-slider-runnable-track {
+    height: 7px;
+    background: rgb(29, 52, 96);
+    border-radius: 15px;
+}
+*/
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 6px;
+    height: 26px;
+    background: #1240a2;
+    border-radius: 15px;
+}
+.CommonRightClickMenuItems {
+    width: fit-content;
+    margin-top: 9px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.CommonRightClickMenu {
+    display: block;
+    border-radius: 6px;
+    font-size: 10px;
+    font-family: 'Inter-regular';
+    background: #9fa3aa;
+    /* width: 52px;
+    height: 90px; */
+    width: fit-content;
+    height: fit-content;
+}
+
+#ContentHeaderText{
+    color: rgb(45 47 52);
+    font-family: 'Inter-Bold';
+    position: absolute;
+    left: 25px;
+    top: 16px;
+}
+#page_OptionsTitle{
+    position: absolute;
+    color: rgb(45 47 52);
+    height: auto;
+    width: fit-content;
+    font-weight: bold;
+    margin-left: 18px;
+    margin-top: 14%;
+    font-family: 'Inter-Bold';
+}
+
+.container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    border: 1px solid rgb(29, 52, 96);
+    /* background-color: #eee; */
+  }
+  
+
+  .SelectResponsiveKeys{
+    position: absolute;color: #1240A2;
+    margin-left: 765px;margin-top: 396px;font-size: 14px;
+  }
+  /* On mouse-over, add a grey background color */
+  /* .container:hover input ~ .checkmark {
+     background-color: red; 
+  } */
+  
+  /* When the checkbox is checked, add a blue background */
+  /* .input:checked ~ .checkmark {
+     background-color: #2196F3; 
+  } */
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    width: 5px;
+    height: 10px;
+    border: solid rgb(29, 52, 96);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-left: 3px;
+    margin-top: -2px;
+  }
+
+
+  #AreaTitle{
+    position: absolute;
+    top: 15.41px;margin-left: 26px;
+    color: rgb(45, 47, 52);
+    font-family: 'Inter-Bold';
+  }
+
+
+
+/*#region Select*/
+
+.AskWindowPosition{
+    position: absolute;
+    height: 190px;
+    width: 493px;
+    background: rgb(245, 245, 247);
+    top: 18.2%;
+    left: 31.7%;
+}
+
+
+
+/*#endregion Select*/

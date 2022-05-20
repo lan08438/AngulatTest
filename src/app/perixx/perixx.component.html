@@ -1,0 +1,1754 @@
+<!-- <div style="font-size: 22px;
+position: absolute;
+top: 0;
+right: 0%;
+width: 217px;
+height: 21px;
+z-index: 9999;" class="text-effect">
+  <div class="neon" data-text="Beta Version_1.22" >???</div>
+  <div class="gradient"></div>
+  <div class="spotlight"></div>
+</div> -->
+
+<div id="SnaplLineXY" style="
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-width: 1px 0px 0px 1px;
+    border-color: rgb(255 0 0);
+    border-style: solid;
+    box-sizing: border-box;
+    left: 80px;
+    top: 0px;
+    z-index: 9999;
+    pointer-events: none;">
+</div>
+
+
+
+<div id="UpdateProgressVersion" data-identity="m_Rename">
+  Beta Version_1.39
+</div>
+<div *ngIf="this.currentPage=='Macro_Nav'" id="macroFileOptions" style="z-index: 1111;"
+  [style.display]="macroRightClick?'block': 'none'" class="CenterAlignment CommonRightClickMenu"
+  data-identity="operationList">
+  <div class="CommonRightClickMenuItems" id="m_Rename" data-identity="m_Rename"
+    (click)="macroOperationOption('startRenameMacroFile');"
+    (contextmenu)="macroOperationOption('startRenameMacroFile');">
+    {{this.i18nManager.getTarget('Rename')}}
+  </div>
+  <div class="CommonRightClickMenuItems" id="m_Copy" (click)="macroOperationOption('copyFolderFile');"
+    (contextmenu)="macroOperationOption('copyFolderFile');">
+    {{this.i18nManager.getTarget('Copy')}}
+  </div>
+  <div class="CommonRightClickMenuItems" id="m_Export" (click)="downloadExportData();"
+    (contextmenu)="downloadExportData();">
+    {{this.i18nManager.getTarget('Export')}}
+  </div>
+  <div class="CommonRightClickMenuItems" id="m_Delete" *ngIf="MacroManager.getClass().macroFiletItem.length>1"
+    (click)="macroOperationOption('deleteMacroFile');" (contextmenu)="macroOperationOption('deleteMacroFile');">
+    {{this.i18nManager.getTarget('Delete')}}
+  </div>
+  <div style="margin-bottom: 6px;"> </div>
+
+
+</div>
+<div *ngIf="this.currentPage=='Macro_Nav'" id="macroFileProfileOptions" style="z-index: 1111;"
+  [style.display]="macro_ProfileRightClick?'block': 'none'" class="CenterAlignment CommonRightClickMenu"
+  data-identity="operationList">
+  <div id="m_Delete" class="CommonRightClickMenuItems" (click)="macroBindKeyOption('deleteMacroFile');"
+    (contextmenu)="macroBindKeyOption('deleteMacroFile');">
+    {{this.i18nManager.getTarget('Delete')}}
+  </div>
+  <div style="margin-bottom: 6px;"> </div>
+</div>
+
+<div id="HeaderColumn" style="position: relative;
+height: 25px;
+z-index: 1112;
+width: 100%;
+background: rgb(29 52 96);
+border-bottom: 1px solid rgb(159 163 170);">
+  <div id="app-region" style="    position: absolute;
+    height: 100%;
+    width: 93%;
+    -webkit-app-region: drag;">
+  </div>
+  <div id="MinimizeIcon" style="    position: absolute;
+  background-image: url(./image/Perixx_Project/Share/MinimizeIcon.png);
+  height: 2px;
+  width: 10px;
+  right: 2.7%;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 16.5px;"
+    (click)="Electron_Service.specifyTheDesiredFunction('zoomApplication')">
+  </div>
+  <div id="ExitApplication" style="position: absolute;
+  background-image: url(./image/Perixx_Project/Share/ExitApplication.png);
+  height: 10px;
+  width: 10px;
+  right: 0.7%;
+  top: 9px;
+  background-repeat: no-repeat;
+  background-position: center;"
+    (click)="Electron_Service.specifyTheDesiredFunction('quitApplication')">
+  </div>
+</div>
+
+
+
+
+
+<div id="DeviceContentPage" style="
+position: relative;
+height: 97%;width: 100%;background: #2D2F34;color: rgb(255, 255, 255);">
+  <div id="onRecordUI" class="CenterAlignment"
+    style="position: absolute;height: 100%;z-index: 1111;width: 100%;background: #0000008a;"
+    [style.display]="MacroManager.onRecord?'flex':'none'">
+    <div class="CenterAlignment" style="height: 20%;width: 20%;">
+      OnRecord...
+    </div>
+  </div>
+  <div [style.display]="onLodaing?'flex':'none'" id="LodaingInage" class="CenterAlignment"
+    style="position: absolute;height: 100%;z-index: 1111;width: 100%;background: #0000008a;">
+    <div style="height: 38px;
+    color: rgb(255 255 255);
+    position: absolute;
+    top: 252px;
+    font-family: 'Inter-regular';
+    font-size: 18px;
+          "> Loading Data
+      </div>
+      <img src="image/Perixx_Project/Share/White_Loading.gif" alt="White_Loading.gif" style="height: 73PX;
+        width: 73PX;" />
+  </div>
+
+
+
+  <div [style.display]="askIfYouAreSureToReset?'flex':'none'" id="AskIfYouAreSureToReset" class="CenterAlignment"
+    style="position: absolute;height: 100%;z-index: 1111;width: 100%;background: #0000008a;">
+    <div class="AskWindowPosition">
+      <img src="image/Perixx_Project/Share/ExclamationMark.png" style="position: absolute;
+      top: 46px;
+left: 9%;">
+      <div style="height: 38px;
+          color: rgb(45,47,52);
+          width: 304px;
+          position: absolute;
+          left: 18%;top: 49px;
+          font-family: 'Inter-regular';
+          font-size: 18px;
+            "> Are you sure to reset the settings of the current profile?
+      </div>
+      <div class="ApplyBtn" style="    height: 38px;
+            width: 153px;
+            position: absolute;
+            bottom: 23px;
+            right: 196px;" (click)="askIfYouAreSureToReset=false;">Cancel
+      </div>
+      <div class="ApplyBtn" style="    height: 38px;
+            width: 153px;
+            position: absolute;
+            bottom: 23px;
+            right: 33px;" (click)="restoreFactorySettings();askIfYouAreSureToReset=false;"> Yes
+      </div>
+    </div>
+  </div>
+
+  <div [style.display]="theScreenThatPopsUpWhenTheUpdateFails?'flex':'none'" id="theScreenThatPopsUpWhenTheUpdateFails"
+    class="CenterAlignment" style="position: absolute;height: 100%;z-index: 1111;width: 100%;background: #0000008a;">
+    <div class="AskWindowPosition">
+      <img src="image/Perixx_Project/Share/UpdatesFailedIcon.png" style="position: absolute;    top: 46px;
+      left: 9%;">
+      <img src="image/Perixx_Project/Share/UpdatesFailedCrossX.png" style="position: absolute;top: 16px;right: 18px;"
+        (click)="theScreenThatPopsUpWhenTheUpdateFails=false;">
+
+      <div style="
+      color: rgb(45,47,52);
+      position: absolute;
+      left: 18%;
+    top: 49px;
+      font-weight:bold;
+      font-size:18px;"> Updates failed
+      </div>
+      <div style="color: rgb(45,47,52);
+      position: absolute;
+      left: 18%;
+    top: 79px;
+      font-size: 18px;
+      width: 361px;
+      line-height: 23px;
+      font-family: 'Inter-Regular';
+        "> We couldn’t complete the updates. Please reconnect the
+        keyboard to your computer and apply settings again.
+      </div>
+
+    </div>
+  </div>
+
+  <div [style.display]="newUpdateDetected?'flex':'none'" id="newUpdateDetected" class="CenterAlignment"
+    style="position: absolute;height: 100%;z-index: 1111;width: 100%;background: #0000008a;">
+    <div class="AskWindowPosition">
+      <img src="image/Perixx_Project/Share/newUpdateDetected.png" style="position: absolute;
+      top: 46px;
+left: 9%;">
+      <div style="height: 38px;
+          color: rgb(45,47,52);
+          width: 304px;
+          position: absolute;left: 18%;top: 49px;"> 
+            <div style="font-family: 'Inter-Bold';font-size:18px;">Firmware</div>
+            <div style="margin-top: 5px;font-family: 'Inter-Regular';font-size:18px;">Find new firmware: XXXXXXX</div>
+      </div>
+
+      <div class="ApplyBtn" style="    height: 38px;
+            width: 153px;
+            position: absolute;
+            bottom: 23px;
+            right: 196px;" (click)="newUpdateDetected=false;">Cancel
+      </div>
+      <div class="ApplyBtn" style="    height: 38px;
+            width: 153px;
+            position: absolute;
+            bottom: 23px;
+            right: 33px;" (click)="newUpdateDetected=false;settingLocation='FirmwareUpgrade'"> Show Details
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="softwareSettingPage" id="softwareSettingPage" 
+    style="position: absolute;height: 100%;z-index: 1111;width: 100%;background: #0000008a;">
+    <div id="ChildPageContent" style="    position: absolute;
+    width: 631px;
+    height: 527px;
+    left: 285px;
+    top: 72px;
+    background: rgb(45 47 52);">
+      <section id="toolbar"
+        style="width: 100%;height: 25px;background-color: rgb(29, 52, 96);display: flex;flex-direction: row-reverse;">
+        <div id="ExitApplicationIcon" class="ToolbarOptions"
+          [style.background-color]="ExitMouseover=='Exit'?'rgb(255, 128, 128)':'rgba(60, 60, 60, 0)'"
+          (mouseover)="ExitMouseover='Exit'" (mouseleave)="ExitMouseover=''" (click)="softwareSettingPage=false">
+          <img style="position: absolute;margin-top: 8px;
+          margin-left: -6px;" src="image/Perixx_Project/Share/ExitApplication.png">
+        </div>
+        <div id="MinimizeIcon" class="ToolbarOptions"
+          [style.background-color]="ExitMouseover=='Minimize'?'rgb(255, 128, 128)':'rgba(60, 60, 60, 0)'"
+          (mouseover)="ExitMouseover='Minimize'" (mouseleave)="ExitMouseover=''">
+          <img style="position: absolute;margin-top: 17px;
+          margin-left: 5px;" src="image/Perixx_Project/Share/MinimizeIcon.png">
+        </div>
+      </section>
+      <div id="ChildPage" style="    position: relative;width: fit-content;
+            display: inline-flex;flex-direction: column;
+            height: 93%;vertical-align: top;
+            ">
+
+        <div (click)="softwareSettingCurrentPage='About';verticalAnimationLineValue=28;" id="About" style="padding-left: 37px;
+              margin-top: 31px;
+              display: flex;font-family: 'Inter-Bold';
+          flex-direction: row-reverse;">
+          About
+        </div>
+        <div (click)="softwareSettingCurrentPage='Update';verticalAnimationLineValue=86;" id="Update" style="margin-top: 40px;    display: flex;font-family: 'Inter-Bold';
+              flex-direction: row-reverse;">
+          Update
+        </div>
+
+        <div (click)="softwareSettingCurrentPage='Help';verticalAnimationLineValue=144;" id="Help" style="margin-top: 40px;    display: flex;font-family: 'Inter-Bold';
+              flex-direction: row-reverse;">
+          Help
+        </div>
+
+      </div>
+      <div id="VerticalAnimationLine" style="    width: 1px;
+      height: 26px;
+      background: rgb(255, 255, 255);
+      vertical-align: top;
+      display: inline-flex;
+      margin-left: 6px;
+      margin-top: 28px;
+      transition-property: margin-top;
+      transition-duration: 0.4s;" [style.marginTop.px]="verticalAnimationLineValue">
+
+      </div>
+      <section id="ChildPageArea" style="    width: fit-content;
+      height: 93%;
+      background: rgb(0 0 255);
+      display: inline-flex;">
+        <section *ngIf="softwareSettingCurrentPage=='About'" id="AboutArea">
+          <img id="SettingIcon" style="position: absolute;margin-left: 27%;margin-top: 7.5%;" src="image/Perixx_Project/Settings/Logo.png">
+          <img id="SettingIcon" style="position: absolute;margin-top: 119px;margin-left: 362px;" src="image/Perixx_Project/Settings/Instagram.png"
+            (click)="linkToTheDesignatedWebsite('https://www.instagram.com/perixxofficial/?hl=en')">
+          <img id="SettingIcon" src="image/Perixx_Project/Settings/FBIcon.png" style="position: absolute;margin-top: 119px;
+          margin-left: 315px;"
+            (click)="linkToTheDesignatedWebsite('https://www.facebook.com/Perixx.Computer/')">
+
+          <!-- <a style="    position: absolute;
+          margin-top: 30%;
+          margin-left: 29%;
+          color: rgb(255 255 255);
+          text-decoration: unset;" href="https://perixx.com/" target="_blank">https://perixx.com/</a> -->
+          <div id="ParallelLine" style="position: absolute;
+          background: rgb(159,163,170);
+          width: 403px;height: 1px;margin-left: 88px;margin-top: 348px;">
+          </div>
+          <div dataIntroductionText="" style="position: absolute;
+                                      width: 387px;
+                                       height: auto;
+                                       word-break: break-word;
+                                       margin-left: 18%;
+                                       margin-top: 365px;">
+            <div style="    font-family: 'Inter-Regular';
+                      font-size: 12px;
+                      transform: scale(0.83);
+                      margin-left: -31px;
+                      margin-top: -6px;"> Perixx is a trademark of Perixx Computer GmbH in Düsseldorf, Germany. Software
+              copyrights and patents were created by Perixx Computer GmbH.
+            </div>
+          </div>
+          <div dataIntroductionText="" style="    position: absolute;
+                    width: auto;
+                    height: auto;
+                    word-break: break-word;
+                    margin-left: 18%;
+                    margin-top: 441px;">
+            <div style="    font-family: 'Inter-Regular';
+                    font-size: 12px;
+                    transform: scale(0.83);
+                    margin-left: -26px;
+                    margin-top: -31px;"> © Perixx, Powered by Perixx Computer GmbH. All rights reserved.
+            </div>
+          </div>
+
+        </section>
+
+        <section *ngIf="softwareSettingCurrentPage=='Update'" id="Update">
+          <div style="position: absolute;
+          margin-left: 29.6%;
+          margin-top: 6.2%;
+          font-family: 'Inter-Bold';">Current Version: XXX
+          </div>
+          <div style="    position: absolute;
+          margin-left: 30.6%;
+          margin-top: 13.2%;
+          font-size: 14px;" class="LanguageBtn"> Check
+            New Version
+          </div>
+        </section>
+        <section *ngIf="softwareSettingCurrentPage=='Help'" id="Help">
+          <p style="    margin-left: 35.7%;
+          top: 9.2%;position: absolute;    font-weight: bold;">User Manual
+          </p>
+          <div class="LanguageBtn" style="margin-left: 31.4%;top: 20.5%;">Download</div>
+        </section>
+      </section>
+
+
+    </div>
+  </div>
+
+  <div [style.display]="FWManager.updatingStatus!=''?'flex':'none'" id="updatingFirmwareStatus" class="CenterAlignment"
+    style="position: absolute;height: 100%;z-index: 1111;width: 100%;background: #0000008a;">
+    <div [style.display]="FWManager.updatingStatus=='updating'?'flex':'none'"
+      class="AskWindowPosition">
+      <div style="height: 38px;
+          color: rgb(45,47,52);
+          width: 304px;
+          position: absolute;
+          top: 44px;
+          left: 18.1%;
+            "> Firmware
+      </div>
+      <div style="height: 38px;
+      color: rgb(45,47,52);
+      width: auto;
+      position: absolute;
+      left: 18%;
+      top: 71px; font-family: 'Inter-Regular';
+        "> Please don't disconnect the Perixx keyboard
+      </div>
+      <div id="ProgressDivBackground" style="position:absolute;
+         left: 18%;top: 98px;width: 340px;height: 10px;
+         background: rgb(159 163 170);border-radius: 11px;">
+        <div id="percentage" style="position: absolute;
+        margin-left: 343px;
+        margin-top: -2.6px;
+        color: rgb(45,47,52);
+        direction: rtl;
+        font-size: 12px;">{{FWManager.updatingPercentage}}%
+        </div>
+        <div id="ProgressBar" style="width: 0px;
+          background:  rgb(45,47,52);
+          height: inherit;
+          border-radius: inherit;" [style.width.px]="FWManager.updatingPercentage*340/100">
+        </div>
+      </div>
+      <div style="height: 38px;
+              color: rgb(45,47,52);
+              width: 304px;
+              position: absolute;
+              left: 18%;
+              top: 118px; font-family: 'Inter-Regular';
+                "> Writing data to the processor…
+      </div>
+
+    </div>
+    <div [style.display]="FWManager.updatingStatus=='updateCompleted'?'flex':'none'" id="UpdateCompleted"
+      class="AskWindowPosition">
+      <img src="image/Perixx_Project/Share/UpdateCompleted.png" style="position: absolute;
+      top: 46px;
+left: 9%;">
+      <div style="color: rgb(45,47,52);
+      position: absolute;left: 18%;top: 49px;font-size: 18px;font-weight: bold;">
+        Message
+      </div>
+      <div style="color: rgb(45,47,52);
+      position: absolute;left: 18%;top: 77px;">
+        The firmware has been updated successfully.
+      </div>
+
+
+
+      <div class="ApplyBtn" style="    height: 38px;
+              width: 153px;
+              position: absolute;
+              bottom: 23px;
+              right: 33px;" (click)="FWManager.updatingStatus=''"> OK
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="this.currentPage=='ConnectedPage'"
+    style="position: absolute;height: 100%;z-index: 1109;width: 100%;background: #0000008a;" id="Content">
+
+    <div id="Content" style="position: absolute;
+    left: 403px;
+    width: 394px;
+    height: 17px;
+    top: 86px;
+    text-align: center;">
+      <span *ngIf="!this.DeviceService.isThereADeviceBeingPluggedIn()">Connect a Perixx device to access the software.</span>
+      <span *ngIf="this.DeviceService.isThereADeviceBeingPluggedIn()"> {{this.DeviceService.getCurrentDevice().devicename}}</span>
+    </div>
+    <div *ngIf="this.DeviceService.isThereADeviceBeingPluggedIn()" id="Enter_Home_Nav" style="position: absolute;
+    left: 524px;
+    top: 143px;
+    width: 153px;
+    height: 38px;
+    border: 1px solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;" (click)="enterTheSpecifiedKeyboard();">
+      Enter
+    </div>
+    <div class="ParallelTextString" style="    color: rgb(255,255,255);
+    height: 25px;
+    align-items: center;
+    position: absolute;
+    left: 453px;
+    bottom: 29px;">
+      <img style="margin-left: 0px;margin-right: 25px;"
+        [src]="SettingManager.agreeToReceiveUpdatesFromPerixx?ImgPath.arrowTick_White[1]:ImgPath.arrowTick_White[0]"
+        (click)="SettingManager.agreeToReceiveUpdatesFromPerixx=!SettingManager.agreeToReceiveUpdatesFromPerixx">
+      I agree to receive updates from Perixx.
+    </div>
+  </div>
+
+  <div *ngIf="this.currentPage!='ConnectedPage'" id="Nav_Project">
+      <img class="Nav_ProjectItem" *ngFor="let item of KeyBoardManager.KeyBoardArray ;let i = index" 
+      [src]="keyboardColorHintMode=='KeyBoardManager'&&KeyBoardManager.keyboardOfChoice ==i?ImgPath.getTheProjectIcon(i+1)[1]:ImgPath.getTheProjectIcon(i+1)[0]"
+      (click)="project_select($event,i)">
+  </div>
+  <div *ngIf="this.currentPage!='ConnectedPage'" id="NavigationBar">
+    <img [src]="currentPage=='Home_Nav'? ImgPath.Home_Nav[1]:ImgPath.Home_Nav[0]" (click)="setPageIndex('Home_Nav')"
+      class="NavigationOption">
+    <img [src]="currentPage=='Keyboard_Nav'? ImgPath.Keyboard_Nav[1]:ImgPath.Keyboard_Nav[0]"
+      (click)="setPageIndex('Keyboard_Nav')" class="NavigationOption">
+    <img [src]="currentPage=='Lighting_Nav'? ImgPath.Lighting_Nav[1]:ImgPath.Lighting_Nav[0]"
+      (click)="setPageIndex('Lighting_Nav')" class="NavigationOption">
+    <img [src]="currentPage=='Macro_Nav'? ImgPath.Macro_Nav[1]:ImgPath.Macro_Nav[0]" (click)="setPageIndex('Macro_Nav')"
+      class="NavigationOption">
+
+  </div>
+
+  <section *ngIf="this.currentPage=='Home_Nav'" id="SharedPageContent">
+    <section id="Home_NavOptions" class="page_Options">
+      <!-- [style.background-color]="KeyBoardManager.keyboardOfChoice ==i?'rgb(18, 61, 162)':'rgba(0, 0, 0,0)'"
+      [style.color]="KeyBoardManager.keyboardOfChoice ==i?'rgb(255, 255, 255)':'rgb(159, 163, 170)'" -->
+      <div id="page_OptionsTitle">
+        Settings
+      </div>
+      <div id="page_OptionsScope" style="margin-left: 6px;
+      margin-top: 70px;">
+        <div class="Shard_OptionItem" *ngFor="let item of settingsOption ;let i = index"
+          (click)="scrollMoveToTheSpecifiedlocation(item.name);"
+          [style.color]="item.name==settingLocation?'rgb(255, 255, 255)':'rgb(159, 163, 170)'"
+          [style.background-color]="item.name==settingLocation?'rgb(18, 61, 162)':'rgba(0, 0, 0,0)'">
+          &nbsp;&nbsp;{{item.name}}
+        </div>
+        <div id="Firmware" style="color: rgb(45 47 52);
+            height: auto;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 10%;
+            margin-left: 12px;
+          margin-bottom: 2%;">
+          Firmware
+        </div>
+        <div id="Firmware Upgrade" style="height: auto;
+            width: 100%;
+            line-height: 25px;" (click)="settingLocation='FirmwareUpgrade'"
+          [style.color]="settingLocation=='FirmwareUpgrade'?'rgb(255, 255, 255)':'rgb(159, 163, 170)'"
+          [style.background-color]="settingLocation=='FirmwareUpgrade'?'rgb(18, 61, 162)':'rgba(0, 0, 0,0)'">
+          &nbsp;&nbsp;&nbsp;Firmware Upgrade
+        </div>
+      </div>
+
+
+    </section>
+    <div id="Home_RightPanel" style="position: absolute;
+    height: 100%;
+    width: 898px;
+    margin-left: 302px;
+    background: rgb(237 238 240);">
+
+
+      <section [style.display]="settingLocation!='FirmwareUpgrade'?'block': 'none'">
+        <div id="ContentHeaderText" >Settings</div>
+        <div id="SharedSelectList" style="    margin-left: 25px;
+          background: rgb(87 136 77 / 0%);    margin-top: 54px;
+        height: 90%;width: 867px;" (scroll)="triggeredWhenTheScrollBarSlides($event)">
+          <div id="Information" >
+          </div>
+          <div id="InformationArea" style="margin-top: 0px;" class="HomePageHeaderText">
+            <section style="margin-top: 0px;color: rgb(18,64,162);" class="ParallelTextString">
+              Information
+            </section>
+            <section class="ParallelTextString">
+              Device Model
+              <div style="position: absolute;
+              right: 14.1%;
+              width: 20%;">
+                Periboard-XXX
+              </div>
+            </section>
+            <section class="GrayMask" style="height: 50px;"></section>
+            <section class="ParallelTextString">
+              Battery
+              <div style="position: absolute;
+                          right: 14.1%;
+                          width: 20%;">
+                     0%
+              </div>
+              <img [src]="getbatteryShowImage()"
+              style="position: absolute;
+              right: 22.5%;
+              margin-top: 1px;">
+            </section>
+
+          </div>
+          <div id="Layout" class="ParallelLines">
+          </div>
+          <div id="LayoutArea" class="HomePageHeaderText">
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Layout
+            </section>
+            <section class="ParallelTextString" style="margin-top: 25px;
+            align-items: center;
+            font-size: 16px;">
+              <input type="radio" name="Layout" (change)="settingLayoutChoice();"
+                [(ngModel)]="KeyBoardManager.getTarget().layoutMode" [value]="'Default'">
+              <div style="    position: absolute;
+              left: 26px;
+              width: 20%;">
+                Default
+              </div>
+            </section>
+            <section class="ParallelTextString" style="margin-top: 25px;
+            align-items: center;
+            font-size: 16px;">
+              <input type="radio" name="Layout" (change)="settingLayoutChoice();"
+                [(ngModel)]="KeyBoardManager.getTarget().layoutMode" [value]="'Custom'">
+              <div style="    position: absolute;
+              left: 26px;
+              width: 20%;">
+                Custom
+              </div>
+            </section>
+          </div>
+          <div id="Lighting" class="ParallelLines">
+          </div>
+          <div id="LightingArea" class="HomePageHeaderText">
+            <section class="GrayMask">
+            </section>
+
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Lighting
+            </section>
+            <section class="ParallelTextString">
+              <div style="position: absolute;
+              width: 20%;">
+                Brightness
+              </div>
+            </section>
+            <section style="    flex-direction: column;
+          margin-top: 33px;" class="ParallelTextString">
+              <input id="rangeUI" max="100" min="0" step="10" style="width: 272px;" type="range"
+                [(ngModel)]="KeyBoardManager.getTarget().lightData.brightness">
+              <div [style.marginLeft.px]="KeyBoardManager.getTarget().lightData.brightness*272/100-20" style="text-align: center;
+                width: 7%;
+                font-family: 'Inter-Regular';
+                margin-top: 15px;
+                color: rgb(18, 64, 162);
+                margin-left: 252px;">{{KeyBoardManager.getTarget().lightData.brightness}}%</div>
+
+            </section>
+
+          </div>
+          <!-- <div id="Macro" class="ParallelLines" >
+          </div>
+          <div id="MacroArea" class="HomePageHeaderText">
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Macro
+            </section>
+            <section class="ParallelTextString">
+              <input type="checkbox" style="margin: 1px;" [(ngModel)]='KeyBoardManager.getTarget().macroEnable' (ngModelChange)="settingLayoutChoice()">
+
+              <div style="position: absolute;
+              right: 73%;
+              width: 20%;">
+              Enable 
+              </div>
+            </section>
+          </div> -->
+          <div id="Auto Sleep" class="ParallelLines">
+          </div>
+          <div id="Auto SleepArea" class="HomePageHeaderText">
+            <section class="GrayMask" ></section>
+
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Auto Sleep
+            </section>
+            <section class="ParallelTextString">
+              <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <div style="margin-left: 26px;">Enable</div>
+              </label>
+
+              <!-- <input id="cbG02" type="checkbox" style="margin: 1px;" [(ngModel)]='KeyBoardManager.getTarget().autoSleepEnable' (ngModelChange)="settingLayoutChoice()">
+              <label for="cbG02" class="css-label cb0">Enable</label> -->
+
+              <!-- <div style="position: absolute;
+              right: 73%;
+              width: 20%;">
+              Enable 
+              </div> -->
+            </section>
+            <section style="flex-direction: column;
+            margin-top: 33px;" class="ParallelTextString">
+              <input id="rangeUI" max="60" min="1" style="width: 272px;" type="range"
+                [(ngModel)]='KeyBoardManager.getTarget().autoSleepValue' (ngModelChange)="settingLayoutChoice()">
+              <div [style.marginLeft.px]="KeyBoardManager.getTarget().autoSleepValue*272/60-20" style="text-align: center;
+                  width: 7%;
+                  margin-top: 15px;
+                  color: rgb(18, 64, 162);
+                  margin-left: 252px;
+                  margin-bottom: 1px;
+
+                      white-space: nowrap;
+                  color: rgb(18,64,162);">{{KeyBoardManager.getTarget().autoSleepValue}} mins</div>
+
+            </section>
+            <section style="font-family: 'Inter-Regular';
+            font-size: 14px;" class="ParallelTextString">
+              In wireless mode, keyboard will go into sleep after 60 minutes of idle time.
+            </section>
+          </div>
+          <div id="Bluetooth" class="ParallelLines">
+          </div>
+          <div id="BluetoothArea" class="HomePageHeaderText">
+            <section class="GrayMask" style="height: 97px;margin-top: -23px;"> </section>
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Bluetooth
+            </section>
+            <section class="ParallelTextString">
+              Bluetooth Bind
+              <div style="position: absolute;
+              right: 237px;
+              width: 52px;
+              height: 23px;
+              background: rgb(29,52,96);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: rgb(245,245,247);">
+                Clear
+              </div>
+            </section>
+          </div>
+          <div id="Reset" class="ParallelLines">
+          </div>
+          <div id="ResetArea" class="HomePageHeaderText">
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Reset
+            </section>
+            <section class="ParallelTextString">
+              Restore factory settings of the current profile
+              <div (click)="askIfYouAreSureToReset=true;" style="position: absolute;
+              right: 237px;
+              width: 52px;
+              height: 23px;
+              background: rgb(29,52,96);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: rgb(245,245,247);">
+                Clear
+              </div>
+            </section>
+          </div>
+
+
+
+
+
+
+          <div style="height: 88%;">
+          </div>
+
+        </div>
+      </section>
+
+      <section id="FirmwareUpgradeArea" *ngIf="settingLocation=='FirmwareUpgrade'">
+        <div id="ContentHeaderText">Firmware </div>
+        <div id="SharedSelectList" style="    margin-left: 25px;
+        background: rgb(87 136 77 / 0%);    margin-top: 54px;
+      height: 90%;width: 867px;">
+          <div id="Current VersionArea" class="HomePageHeaderText">
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Information
+            </section>
+            <section class="ParallelTextString">
+              Date:2021/12/21
+            </section>
+            <section style="align-items: center;" class="ParallelTextString">
+              Version:XXXXXXX
+              <img style="margin-left: 37px;" 
+              [src]="firmwareDetail?ImgPath.storageArrow[1]:ImgPath.storageArrow[0]"
+              (click)="firmwareDetail=!firmwareDetail">
+            </section>
+            <section [style.height]="firmwareDetail?'auto':'0px'" class="StorageBoxText">
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            </section>
+          </div>
+          <div id="Latest Firmware" class="ParallelLines">
+          </div>
+          <div id="Latest FirmwareArea" class="HomePageHeaderText">
+            <section style="color: rgb(18,64,162);" class="ParallelTextString">
+              Latest Firmware
+            </section>
+            <section class="ParallelTextString">
+              Date:2021/12/21
+            </section>
+            <section style="align-items: center;" class="ParallelTextString">
+              Version:XXXXXXX
+              <img style="margin-left: 37px;" 
+              [src]="latestFirmwareDetail?ImgPath.storageArrow[1]:ImgPath.storageArrow[0]"
+              (click)="latestFirmwareDetail=!latestFirmwareDetail">
+            </section>
+            <section [style.height]="latestFirmwareDetail?'auto':'0px'" class="StorageBoxText">
+              1.keyboard update
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            </section>
+          </div>
+          <div class="ParallelTextString" style="    color: rgb(29, 52, 96);
+          height: 25px;
+          align-items: center;
+          position: absolute;
+          bottom: 149px;">
+            <img style="margin-left: 0px;margin-right: 25px;"
+              [src]="SettingManager.agreeToReceiveUpdatesFromPerixx?ImgPath.arrowTick[1]:ImgPath.arrowTick[0]"
+              (click)="SettingManager.agreeToReceiveUpdatesFromPerixx=!SettingManager.agreeToReceiveUpdatesFromPerixx">
+            I agree to receive updates from Perixx.
+          </div>
+
+          <div *ngIf="!FWManager.firmwareHasANewUpdate"
+          [style.color]="'rgb(18,64,162)'"
+          [style.border-color]="'rgb(18,64,162)'"  
+          class="ApplyBtn" style="bottom: 71px;" > Upgrade
+          </div>
+
+          <div *ngIf="FWManager.firmwareHasANewUpdate"
+          class="ApplyBtn PageApplyBtn"
+          style="bottom: 71px;" 
+          (click)="FWManager.startUpdateFirmwareData();"> Upgrade
+          </div>
+
+
+
+
+        </div>
+      </section>
+
+
+    </div>
+
+  </section>
+
+  <section *ngIf="this.currentPage=='Lighting_Nav'" id="SharedPageContent">
+
+    <section id="Lighting_NavOptions" class="page_Options">
+      <!-- <img src="image/Perixx_Project/Share/ImportIcon.png" style="position: absolute;
+          right:20%;
+          margin-top: 15%;" 
+          (click)="downloadExportData();" (contextmenu)="downloadExportData();"> -->
+
+      <div id="page_OptionsTitle">
+        Lighting
+      </div>
+      <div id="page_OptionsScope" style="margin-left: 6px;margin-top: 70px;">
+        <div *ngFor="let item of Built_ineffect.lightListData ;let i = index" class="Lighting_OptionItem"
+          [style.marginTop.px]="item.PointEffectName=='Breathing Per Key'?'31':'0'"
+          (click)="Built_ineffect.switchBuilt_ineffect(i)"
+          [style.background-color]="Built_ineffect.currentModeIndex==i?'#1240A2':'transparent'"
+          (contextmenu)="lighting_RClick(i,$event)">
+          <input type="text" 
+          [style.color]="Built_ineffect.currentModeIndex==i?'#F5F5F7':'#9FA3AA'"
+          class="lightingNameField" (keyup)="lightingRename($event,i);" (blur)="lightingRename($event,i);"
+            data-identity="lightingNameField" [value]="item.translate"
+            [disabled]="Built_ineffect.editingNumber==i? false : true">
+        </div>
+        <div id="Built_ineffectLines" style="position: absolute;
+                  width: 85%;
+                  height: 1px;
+                  background: rgb(159 163 170);
+                  top: 314px;
+                  margin-left: 5%;">
+        </div>
+        <div id="Built_ineffectRMenu" [style.display]="operationMenuFlag?'block': 'none'"
+          class="CenterAlignment CommonRightClickMenu" data-identity="operationList">
+          <div id="m_Rename" class="CommonRightClickMenuItems" (click)="lighting_MenuFn('m_Rename');"
+            (contextmenu)="lighting_MenuFn('m_Rename');">
+            {{this.i18nManager.getTarget('Rename')}}
+          </div>
+          <div id="m_Delete" class="CommonRightClickMenuItems" (click)="lighting_MenuFn('m_Reset');"
+            (contextmenu)="lighting_MenuFn('m_Reset');">
+            {{this.i18nManager.getTarget('Reset')}}
+          </div>
+          <div style="margin-bottom: 6px;"> </div>
+      
+        </div>
+      </div>
+    </section>
+
+    <div class="MiddlePanel">
+      <div id="ContentHeaderText" >Lighting</div>
+      <section *ngIf="this.Built_ineffect.Built_inSelected.hasSingleKeyLighting" id="quicklySelectTheBlock" style="position: absolute;width: 92%;top: 25%;display: flex;flex-direction: row-reverse;">
+        <div *ngFor="let item of KeyBoardStyle.getTarget().quicklySelectTheBlockList ;let i = index"
+          [style.color]="item.currentStateOfTheSwitch?'rgb(18,64,162)':'rgb(159,163,170)'"
+          class="QuicklySelectBlockItem" (click)="quicklySelectTheBlockFunction(item.name)">
+          {{this.i18nManager.getTarget(item.name)}}
+        </div>
+      </section>
+      <div id="mainKeyboardBlock" class="KeyBoardAreaStyle">
+        <div [style.background-image]="KeyBoardStyle.getTarget().BGImage" class="KeyBoardGraphsStyle">
+        </div>
+        <div *ngFor="let item of KeyBoardStyle.getTarget().keyMapping ;let i = index"
+          [style.background-color]="Built_ineffect.Built_inSelected.hasSingleKeyLighting? Built_ineffect.getIndexCssRGBA(i):'rgba(0,0,0,0)'"
+          [style.border-width]="Built_ineffect.getBlockValue(i).choosing&&Built_ineffect.Built_inSelected.hasSingleKeyLighting?'2px':'0px'"
+          (click)="Built_ineffect.getBlockValue(i).choosing=!Built_ineffect.getBlockValue(i).choosing"
+          (contextmenu)="Built_ineffect.getBlockValue(i).choosing=!Built_ineffect.getBlockValue(i).choosing"
+          data-KB_Block="i" class="KeyBoard_Block" 
+          [attr.data-index]="i">
+          <img class="KeyBoardBindImg" alt="" [src]="getLightingPageIcon(i)">
+        </div>
+      </div>
+      <section *ngIf="!Built_ineffect.Built_inSelected.hasSingleKeyLighting" 
+      class="colorBaseList">
+        <div style="position: absolute;
+        width: 100%;
+        top: -14px;
+        color: rgb(18,64,162);
+        text-align: right;">
+          Dynamic Light Color Table
+        </div>
+        <div *ngFor="let item of Built_ineffect.Built_inSelected.colors ;let i = index" class="colorBase"
+          id="colorBase{{i}}" [style.background-color]="this.ColorWheelModule.toCssRGBA(item)"
+          [style.border-width]="Built_ineffect.Built_inSelected.colorCardSelectionLocation==999?'2px':'0px'"
+          [style.height]="Built_ineffect.Built_inSelected.colorCardSelectionLocation==999?'23px':'23px'">
+        </div>
+      </section>
+      <!-- (click)="Built_ineffect.setColorCardSelectionLocation(i)" -->
+      <section style="position: absolute;right: 33px;"
+      [style.marginTop.px]="!Built_ineffect.Built_inSelected.hasSingleKeyLighting?'467':'394'">
+        <div style="
+        position: absolute;right: 0px;width: 20%;color: rgb(18,64,162);
+        direction: rtl;"> Brightness </div>
+        <input id="rangeUI" max="100" min="0" style="margin-top: 35px;width: 272px;" type="range"
+          [(ngModel)]="KeyBoardManager.getTarget().lightData.brightness">
+        <div
+        [style.marginLeft.px]="KeyBoardManager.getTarget().lightData.brightness*272/100-20" style="    position: absolute;
+        text-align: center;
+        width: 20%;
+        margin-top: 15px;
+        color: rgb(18, 64, 162);
+        margin-left: 252px;
+        font-family: 'Inter-Regular';">{{KeyBoardManager.getTarget().lightData.brightness}}%</div>
+      </section>
+
+
+
+
+
+
+      <div class="ApplyBtn PageApplyBtn" style="bottom: 74px;" (click)="loadTemporaryKeyboardData()"> Apply
+      </div>
+
+
+    </div>
+    <div class="RightPanal">
+      <section [style.display]="Built_ineffect.Built_inSelected.hasSingleKeyLighting?'block': 'none'" data-ColorPanal>
+      <div id="AreaTitle">
+        Color Palette
+      </div>
+      <div id="divider1" style="position: absolute;
+      top: 308px;
+      width: 216px;
+      margin-left: 16px;
+      height: 1px;
+      background: rgb(159, 163, 170);">
+      </div>
+      <div style="position: absolute;
+            top: 320px;
+            margin-left: 26px;
+            color: rgb(18, 64, 162);
+            font-weight: bold;">
+        Default
+      </div>
+
+      <div id="divider2" style="position: absolute;
+      top: 445px;
+      width: 216px;
+      margin-left: 16px;
+      height: 1px;
+      background: rgb(159, 163, 170);">
+      </div>
+      <div style="position: absolute;
+      top: 463px;
+      margin-left: 26px;
+      color: rgb(18, 64, 162);
+      font-weight: bold;">
+        Custom
+      </div>
+      <div data-ColorWheel="5" style="width: 200px;
+            height: 200px;
+            margin-top: 58px;
+            margin-left: 26px;">
+        <div id="coordinateCircle" style="margin-left: calc(50% - 5px);margin-top: calc(50% - 5px);">
+        </div>
+      </div>
+      <div id="DefaultColorList" class="ColorBoxSize" style="margin-left: 26px;margin-top: 355px;">
+        <div *ngFor="let item of DefaultColorList;let i = index" class="DefaultColorItem"
+          (click)="updateColorWheel($event)" id="colorBase{{i}}"
+          [style.background-color]="this.ColorWheelModule.toCssRGB(item)">
+        </div>
+        <div class="DefaultColorItem" style="background-image: url(./image/Perixx_Project/Share/BlackColorChart.png);
+     background-size: 100% 100%;" (click)="updateColorWheel($event,true)" id="ColorChart">
+        </div>
+        <div id="CustomColorList" class="ColorBoxSize" style="margin-top: 145px;">
+          <div *ngFor="let item of CustomColorList;let i = index" class="DefaultColorItem"
+            (click)="updateColorWheel($event)" (contextmenu)="updateCustomColorList(i)" id="colorBase{{i}}"
+            [style.background-color]="this.ColorWheelModule.toCssRGB(item)">
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </section>
+
+  <section *ngIf="this.currentPage=='Keyboard_Nav'" id="SharedPageContent">
+
+    <section id="Keyboard_NavOptions" class="page_Options">
+      <div id="page_OptionsTitle">
+        Library
+      </div>
+
+      <img src="image/Perixx_Project/Share/AddIcon.png" style="position: absolute;
+      right: 4%;
+      margin-top: 37px;" (click)="keyboardRMenu('m_Create')">
+      <img src="image/Perixx_Project/Share/ImportIcon.png" style="position: absolute;
+            right:20%;
+            margin-top: 35px;">
+      <div id="SharedSelectList" style="margin-left: 0%;margin-top: 70px;">
+        <div class="Shard_OptionItem" *ngFor="let item of KeyBoardLibray.KeyBoardArray;let i = index"
+          (click)="keyboardLeftClick(i)" (contextmenu)="keyboardRightClick(i,$event)"
+          [style.color]="KeyBoardLibray.keyboardOfChoice==i?'rgb(18, 61, 162)':'rgb(159, 163, 170)'">
+          <input class="KeyBoardLibrayName" [attr.data-mindex]="i" type="text" placeholder="" style="width: 70%;
+            position: absolute;
+            margin-left: 8%;" maxlength="15"
+            [style.visibility]="KeyBoardLibray.keyboardOfChoice==i&&KeyBoardLibray.editingName?'visible': 'hidden'"
+            [(ngModel)]="KeyBoardLibray.nameBeingEdited" (blur)="renameKeyboard($event);
+            KeyBoardLibray.editingName=false;
+            " (keyup)="renameKeyboard($event);">
+          &nbsp;&nbsp;&nbsp;{{item.projectName}}
+        </div>
+
+      </div>
+      <div id="KeyBoardLibrayOptions" [style.display]="operationMenuFlag?'block': 'none'"
+        class="CenterAlignment CommonRightClickMenu" data-identity="operationList">
+        <div id="m_Rename" class="CommonRightClickMenuItems" data-identity="m_Rename"
+          (click)="keyboardRMenu('m_Rename');" (contextmenu)="keyboardRMenu('m_Rename');">
+          {{this.i18nManager.getTarget('Rename')}}
+        </div>
+        <div id="m_Copy" class="CommonRightClickMenuItems" (click)="keyboardRMenu('m_Copy');"
+          (contextmenu)="keyboardRMenu('m_Copy');">
+          {{this.i18nManager.getTarget('Copy')}}
+        </div>
+        <div id="m_Export" class="CommonRightClickMenuItems" (click)="downloadExportData();"
+          (contextmenu)="downloadExportData();">
+          {{this.i18nManager.getTarget('Export')}}
+        </div>
+        <div class="CommonRightClickMenuItems" (click)="keyboardRMenu('m_Reset');"
+          (contextmenu)="keyboardRMenu('m_Reset');">
+          {{this.i18nManager.getTarget('Reset')}}
+        </div>
+        <div *ngIf="KeyBoardLibray.KeyBoardArray.length>1" id="m_Delete" class="CommonRightClickMenuItems"
+          (click)="keyboardRMenu('m_Delete');" (contextmenu)="keyboardRMenu('m_Delete');">
+          {{this.i18nManager.getTarget('Delete')}}
+        </div>
+        <div style="margin-bottom: 6px;"> </div>
+
+      </div>
+    </section>
+    <!-- (contextmenu)="resetTheSpecifiedKeyBindData(i)" -->
+    <div class="MiddlePanel">
+      <div id="ContentHeaderText">Layout</div>
+      <div id="mainKeyboardBlock" class="KeyBoardAreaStyle">
+        <div [style.background-image]="KeyBoardStyle.getTarget().BGImage" class="KeyBoardGraphsStyle">
+        </div>
+        <div *ngFor="let item of KeyBoardStyle.getTarget().keyMapping ;let i = index" data-KB_Block="5"
+          class="KeyBoard_Block" [attr.data-index]="i"
+          [style.border-width]="KeyBoardManager.keyBoardTemp.recordAssignBtnIndex==i?'2px':'0px'"
+          (click)="clickTheKeyBindButton(i)" 
+          (mouseover)="KeyBoardStyle.getTarget().disableImg.visible[i]=false;"
+          (mouseleave)="KeyBoardStyle.getTarget().disableImg.visible[i]=true;">
+          <img class="KeyBoardBindImg" alt="" [src]="getKeyBindingIcon(i)">
+        </div>
+        <div *ngFor="let item of KeyBoardStyle.getTarget().keyMapping ;let i = index" 
+        data-dis_Block="0"
+        class="KeyBoard_Dis_Block"
+        [style.visibility]="KeyBoardStyle.getTarget().disableImg.visible[i]?'visible':'hidden'">
+        <img class="KeyBoardBindImg" alt="" [src]="getKeyDisableIcon(i)">
+        </div>
+      </div>
+
+      <div class="ApplyBtn PageApplyBtn" style="bottom: 74px;" (click)="loadTemporaryKeyboardData()"> Apply
+      </div>
+
+    </div>
+    <div class="SelectResponsiveKeys">Select Responsive Keys</div>
+
+    <div class="RightPanal">
+      <div id="AreaTitle">
+        Customization
+      </div>
+      <div id="KeyAssignSelectList">
+        <div id="Character" class="KeyBindClass">
+          <div class="KeyBindClassWord" >Character</div>
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyA'? ImgPath.getThePicture('KeyA')[1]:ImgPath.getThePicture('KeyA')[0]"
+            (mouseover)="currentTouchButtons='KeyA'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyA')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyB'? ImgPath.getThePicture('KeyB')[1]:ImgPath.getThePicture('KeyB')[0]"
+            (mouseover)="currentTouchButtons='KeyB'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyB')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyC'? ImgPath.getThePicture('KeyC')[1]:ImgPath.getThePicture('KeyC')[0]"
+            (mouseover)="currentTouchButtons='KeyC'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyC')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyD'? ImgPath.getThePicture('KeyD')[1]:ImgPath.getThePicture('KeyD')[0]"
+            (mouseover)="currentTouchButtons='KeyD'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyD')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyE'? ImgPath.getThePicture('KeyE')[1]:ImgPath.getThePicture('KeyE')[0]"
+            (mouseover)="currentTouchButtons='KeyE'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyE')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyF'? ImgPath.getThePicture('KeyF')[1]:ImgPath.getThePicture('KeyF')[0]"
+            (mouseover)="currentTouchButtons='KeyF'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyF')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyG'? ImgPath.getThePicture('KeyG')[1]:ImgPath.getThePicture('KeyG')[0]"
+            (mouseover)="currentTouchButtons='KeyG'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyG')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyH'? ImgPath.getThePicture('KeyH')[1]:ImgPath.getThePicture('KeyH')[0]"
+            (mouseover)="currentTouchButtons='KeyH'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyH')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyI'? ImgPath.getThePicture('KeyI')[1]:ImgPath.getThePicture('KeyI')[0]"
+            (mouseover)="currentTouchButtons='KeyI'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyI')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyJ'? ImgPath.getThePicture('KeyJ')[1]:ImgPath.getThePicture('KeyJ')[0]"
+            (mouseover)="currentTouchButtons='KeyJ'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyJ')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyK'? ImgPath.getThePicture('KeyK')[1]:ImgPath.getThePicture('KeyK')[0]"
+            (mouseover)="currentTouchButtons='KeyK'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyK')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyL'? ImgPath.getThePicture('KeyL')[1]:ImgPath.getThePicture('KeyL')[0]"
+            (mouseover)="currentTouchButtons='KeyL'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyL')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyM'? ImgPath.getThePicture('KeyM')[1]:ImgPath.getThePicture('KeyM')[0]"
+            (mouseover)="currentTouchButtons='KeyM'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyM')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyN'? ImgPath.getThePicture('KeyN')[1]:ImgPath.getThePicture('KeyN')[0]"
+            (mouseover)="currentTouchButtons='KeyN'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyN')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyO'? ImgPath.getThePicture('KeyO')[1]:ImgPath.getThePicture('KeyO')[0]"
+            (mouseover)="currentTouchButtons='KeyO'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyO')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyP'? ImgPath.getThePicture('KeyP')[1]:ImgPath.getThePicture('KeyP')[0]"
+            (mouseover)="currentTouchButtons='KeyP'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyP')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyQ'? ImgPath.getThePicture('KeyQ')[1]:ImgPath.getThePicture('KeyQ')[0]"
+            (mouseover)="currentTouchButtons='KeyQ'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyQ')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyR'? ImgPath.getThePicture('KeyR')[1]:ImgPath.getThePicture('KeyR')[0]"
+            (mouseover)="currentTouchButtons='KeyR'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyR')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyS'? ImgPath.getThePicture('KeyS')[1]:ImgPath.getThePicture('KeyS')[0]"
+            (mouseover)="currentTouchButtons='KeyS'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyS')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyT'? ImgPath.getThePicture('KeyT')[1]:ImgPath.getThePicture('KeyT')[0]"
+            (mouseover)="currentTouchButtons='KeyT'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyT')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyU'? ImgPath.getThePicture('KeyU')[1]:ImgPath.getThePicture('KeyU')[0]"
+            (mouseover)="currentTouchButtons='KeyU'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyU')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyV'? ImgPath.getThePicture('KeyV')[1]:ImgPath.getThePicture('KeyV')[0]"
+            (mouseover)="currentTouchButtons='KeyV'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyV')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyW'? ImgPath.getThePicture('KeyW')[1]:ImgPath.getThePicture('KeyW')[0]"
+            (mouseover)="currentTouchButtons='KeyW'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyW')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyX'? ImgPath.getThePicture('KeyX')[1]:ImgPath.getThePicture('KeyX')[0]"
+            (mouseover)="currentTouchButtons='KeyX'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyX')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyY'? ImgPath.getThePicture('KeyY')[1]:ImgPath.getThePicture('KeyY')[0]"
+            (mouseover)="currentTouchButtons='KeyY'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyY')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='KeyZ'? ImgPath.getThePicture('KeyZ')[1]:ImgPath.getThePicture('KeyZ')[0]"
+            (mouseover)="currentTouchButtons='KeyZ'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('KeyZ')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Minus'? ImgPath.getThePicture('Minus')[1]:ImgPath.getThePicture('Minus')[0]"
+            (mouseover)="currentTouchButtons='Minus'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Minus')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Equal'? ImgPath.getThePicture('Equal')[1]:ImgPath.getThePicture('Equal')[0]"
+            (mouseover)="currentTouchButtons='Equal'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Equal')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='BracketLeft'? ImgPath.getThePicture('BracketLeft')[1]:ImgPath.getThePicture('BracketLeft')[0]"
+            (mouseover)="currentTouchButtons='BracketLeft'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('BracketLeft')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='BracketRight'? ImgPath.getThePicture('BracketRight')[1]:ImgPath.getThePicture('BracketRight')[0]"
+            (mouseover)="currentTouchButtons='BracketRight'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('BracketRight')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Backslash'? ImgPath.getThePicture('Backslash')[1]:ImgPath.getThePicture('Backslash')[0]"
+            (mouseover)="currentTouchButtons='Backslash'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Backslash')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Semicolon'? ImgPath.getThePicture('Semicolon')[1]:ImgPath.getThePicture('Semicolon')[0]"
+            (mouseover)="currentTouchButtons='Semicolon'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Semicolon')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Quote'? ImgPath.getThePicture('Quote')[1]:ImgPath.getThePicture('Quote')[0]"
+            (mouseover)="currentTouchButtons='Quote'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Quote')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Backquote'? ImgPath.getThePicture('Backquote')[1]:ImgPath.getThePicture('Backquote')[0]"
+            (mouseover)="currentTouchButtons='Backquote'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Backquote')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Comma'? ImgPath.getThePicture('Comma')[1]:ImgPath.getThePicture('Comma')[0]"
+            (mouseover)="currentTouchButtons='Comma'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Comma')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Period'? ImgPath.getThePicture('Period')[1]:ImgPath.getThePicture('Period')[0]"
+            (mouseover)="currentTouchButtons='Period'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Period')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Slash'? ImgPath.getThePicture('Slash')[1]:ImgPath.getThePicture('Slash')[0]"
+            (mouseover)="currentTouchButtons='Slash'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Slash')">
+        </div>
+
+        <div id="Number" class="KeyBindClass">
+          <div class="KeyBindClassWord">Number</div>
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit1'? ImgPath.Digit1[1]:ImgPath.Digit1[0]"
+            (mouseover)="currentTouchButtons='Digit1'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit1')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit2'? ImgPath.Digit2[1]:ImgPath.Digit2[0]"
+            (mouseover)="currentTouchButtons='Digit2'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit2')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit3'? ImgPath.Digit3[1]:ImgPath.Digit3[0]"
+            (mouseover)="currentTouchButtons='Digit3'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit3')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit4'? ImgPath.Digit4[1]:ImgPath.Digit4[0]"
+            (mouseover)="currentTouchButtons='Digit4'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit4')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit5'? ImgPath.Digit5[1]:ImgPath.Digit5[0]"
+            (mouseover)="currentTouchButtons='Digit5'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit5')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit6'? ImgPath.Digit6[1]:ImgPath.Digit6[0]"
+            (mouseover)="currentTouchButtons='Digit6'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit6')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit7'? ImgPath.Digit7[1]:ImgPath.Digit7[0]"
+            (mouseover)="currentTouchButtons='Digit7'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit7')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit8'? ImgPath.Digit8[1]:ImgPath.Digit8[0]"
+            (mouseover)="currentTouchButtons='Digit8'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit8')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit9'? ImgPath.Digit9[1]:ImgPath.Digit9[0]"
+            (mouseover)="currentTouchButtons='Digit9'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit9')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='Digit0'? ImgPath.getThePicture('Digit0')[1]:ImgPath.getThePicture('Digit0')[0]"
+            (mouseover)="currentTouchButtons='Digit0'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Digit0')">
+        </div>
+        <div id="Modifier-Left" class="KeyBindClass">
+          <div class="KeyBindClassWord">Modifier-Left</div>
+          <img class="KeyBindStyle" style="margin-left: 0px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='ShiftLeft'? ImgPath.getThePicture('ShiftLeft')[1]:ImgPath.getThePicture('ShiftLeft')[0]"
+            (mouseover)="currentTouchButtons='ShiftLeft'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ShiftLeft')">
+          <img class="KeyBindStyle" style="margin-left: -7px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='ControlLeft'? ImgPath.getThePicture('ControlLeft')[1]:ImgPath.getThePicture('ControlLeft')[0]"
+            (mouseover)="currentTouchButtons='ControlLeft'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ControlLeft')">
+          <img class="KeyBindStyle" style="margin-left: -5px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='MetaLeft'? ImgPath.getThePicture('MetaLeft')[1]:ImgPath.getThePicture('MetaLeft')[0]"
+            (mouseover)="currentTouchButtons='MetaLeft'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MetaLeft')">
+          <img class="KeyBindStyle" style="margin-left: 0px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='AltLeft'? ImgPath.getThePicture('AltLeft')[1]:ImgPath.getThePicture('AltLeft')[0]"
+            (mouseover)="currentTouchButtons='AltLeft'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('AltLeft')">
+        </div>
+        <div id="Modifier-Right" class="KeyBindClass">
+          <div class="KeyBindClassWord">Modifier-Right</div>
+          <img class="KeyBindStyle" style="margin-left: 0px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='ShiftRight'? ImgPath.getThePicture('ShiftRight')[1]:ImgPath.getThePicture('ShiftRight')[0]"
+            (mouseover)="currentTouchButtons='ShiftRight'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ShiftRight')">
+          <img class="KeyBindStyle" style="margin-left: 0px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='ControlRight'? ImgPath.getThePicture('ControlRight')[1]:ImgPath.getThePicture('ControlRight')[0]"
+            (mouseover)="currentTouchButtons='ControlRight'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ControlRight')">
+          <img class="KeyBindStyle" style="margin-left: 0px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='ContextMenu'? ImgPath.getThePicture('ContextMenu')[1]:ImgPath.getThePicture('ContextMenu')[0]"
+            (mouseover)="currentTouchButtons='ContextMenu'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ContextMenu')">
+          <img class="KeyBindStyle" style="margin-left: -2px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='MetaRight'? ImgPath.getThePicture('MetaRight')[1]:ImgPath.getThePicture('MetaRight')[0]"
+            (mouseover)="currentTouchButtons='MetaRight'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MetaRight')">
+          <img class="KeyBindStyle" style="margin-left: 0px;margin-right: 0px;" 
+            [src]="currentTouchButtons=='AltRight'? ImgPath.getThePicture('AltRight')[1]:ImgPath.getThePicture('AltRight')[0]"
+            (mouseover)="currentTouchButtons='AltRight'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('AltRight')">
+        </div>
+        <div id="Arrow" class="KeyBindClass">
+          <div class="KeyBindClassWord">Arrow</div>
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='ArrowUp'? ImgPath.getThePicture('ArrowUp')[1]:ImgPath.getThePicture('ArrowUp')[0]"
+            (mouseover)="currentTouchButtons='ArrowUp'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ArrowUp')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='ArrowDown'? ImgPath.getThePicture('ArrowDown')[1]:ImgPath.getThePicture('ArrowDown')[0]"
+            (mouseover)="currentTouchButtons='ArrowDown'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ArrowDown')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='ArrowLeft'? ImgPath.getThePicture('ArrowLeft')[1]:ImgPath.getThePicture('ArrowLeft')[0]"
+            (mouseover)="currentTouchButtons='ArrowLeft'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ArrowLeft')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='ArrowRight'? ImgPath.getThePicture('ArrowRight')[1]:ImgPath.getThePicture('ArrowRight')[0]"
+            (mouseover)="currentTouchButtons='ArrowRight'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ArrowRight')">
+        </div>
+        <div id="Function" class="KeyBindClass">
+          <div class="KeyBindClassWord">Function</div>
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F1'? ImgPath.getThePicture('F1')[1]:ImgPath.getThePicture('F1')[0]"
+            (mouseover)="currentTouchButtons='F1'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F1')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F2'? ImgPath.getThePicture('F2')[1]:ImgPath.getThePicture('F2')[0]"
+            (mouseover)="currentTouchButtons='F2'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F2')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F3'? ImgPath.getThePicture('F3')[1]:ImgPath.getThePicture('F3')[0]"
+            (mouseover)="currentTouchButtons='F3'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F3')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F4'? ImgPath.getThePicture('F4')[1]:ImgPath.getThePicture('F4')[0]"
+            (mouseover)="currentTouchButtons='F4'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F4')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F5'? ImgPath.getThePicture('F5')[1]:ImgPath.getThePicture('F5')[0]"
+            (mouseover)="currentTouchButtons='F5'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F5')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F6'? ImgPath.getThePicture('F6')[1]:ImgPath.getThePicture('F6')[0]"
+            (mouseover)="currentTouchButtons='F6'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F6')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F7'? ImgPath.getThePicture('F7')[1]:ImgPath.getThePicture('F7')[0]"
+            (mouseover)="currentTouchButtons='F7'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F7')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F8'? ImgPath.getThePicture('F8')[1]:ImgPath.getThePicture('F8')[0]"
+            (mouseover)="currentTouchButtons='F8'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F8')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F9'? ImgPath.getThePicture('F9')[1]:ImgPath.getThePicture('F9')[0]"
+            (mouseover)="currentTouchButtons='F9'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F9')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F10'? ImgPath.getThePicture('F10')[1]:ImgPath.getThePicture('F10')[0]"
+            (mouseover)="currentTouchButtons='F10'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F10')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F11'? ImgPath.getThePicture('F11')[1]:ImgPath.getThePicture('F11')[0]"
+            (mouseover)="currentTouchButtons='F11'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F11')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='F12'? ImgPath.getThePicture('F12')[1]:ImgPath.getThePicture('F12')[0]"
+            (mouseover)="currentTouchButtons='F12'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('F12')">
+          <p></p>
+          <img class="KeyBindStyle" style="margin-left: 1px;"
+            [src]="currentTouchButtons=='Enter'? ImgPath.getThePicture('Enter')[1]:ImgPath.getThePicture('Enter')[0]"
+            (mouseover)="currentTouchButtons='Enter'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Enter')">
+          <img class="KeyBindStyle" style="margin-right: -6px;"
+            [src]="currentTouchButtons=='Escape'? ImgPath.getThePicture('Escape')[1]:ImgPath.getThePicture('Escape')[0]"
+            (mouseover)="currentTouchButtons='Escape'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Escape')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Backspace'? ImgPath.getThePicture('Backspace')[1]:ImgPath.getThePicture('Backspace')[0]"
+            (mouseover)="currentTouchButtons='Backspace'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Backspace')">
+          <img class="KeyBindStyle" style="margin-left: 0px;"
+            [src]="currentTouchButtons=='Tab'? ImgPath.getThePicture('Tab')[1]:ImgPath.getThePicture('Tab')[0]"
+            (mouseover)="currentTouchButtons='Tab'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Tab')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Space'? ImgPath.getThePicture('Space')[1]:ImgPath.getThePicture('Space')[0]"
+            (mouseover)="currentTouchButtons='Space'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Space')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='CapsLock'? ImgPath.getThePicture('CapsLock')[1]:ImgPath.getThePicture('CapsLock')[0]"
+            (mouseover)="currentTouchButtons='CapsLock'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('CapsLock')">
+            <br>
+          <!-- <img class="KeyBindStyle" [src]="currentTouchButtons=='WinLock'? ImgPath.getThePicture('WinLock')[1]:ImgPath.getThePicture('WinLock')[0]"
+            (mouseover)="currentTouchButtons='WinLock'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('WinLock')"> -->
+          <!-- <img class="KeyBindStyle" [src]="currentTouchButtons=='FunctionLock'? ImgPath.getThePicture('FunctionLock')[1]:ImgPath.getThePicture('FunctionLock')[0]"
+            (mouseover)="currentTouchButtons='FunctionLock'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('FunctionLock')"> -->
+          <img class="KeyBindStyle" style="margin-left: 5px;"
+            [src]="currentTouchButtons=='PrintScreen'? ImgPath.getThePicture('PrintScreen')[1]:ImgPath.getThePicture('PrintScreen')[0]"
+            (mouseover)="currentTouchButtons='PrintScreen'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('PrintScreen')">
+          <img class="KeyBindStyle" style="margin-left: 5px;"
+            [src]="currentTouchButtons=='ScrollLock'? ImgPath.getThePicture('ScrollLock')[1]:ImgPath.getThePicture('ScrollLock')[0]"
+            (mouseover)="currentTouchButtons='ScrollLock'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('ScrollLock')">
+            <br>
+          <img class="KeyBindStyle" style="margin-left: 2px;"
+            [src]="currentTouchButtons=='Pause'? ImgPath.getThePicture('Pause')[1]:ImgPath.getThePicture('Pause')[0]"
+            (mouseover)="currentTouchButtons='Pause'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Pause')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Insert'? ImgPath.getThePicture('Insert')[1]:ImgPath.getThePicture('Insert')[0]"
+            (mouseover)="currentTouchButtons='Insert'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Insert')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Home'? ImgPath.getThePicture('Home')[1]:ImgPath.getThePicture('Home')[0]"
+            (mouseover)="currentTouchButtons='Home'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Home')">
+          <img class="KeyBindStyle" style="margin-left: 2px;"
+            [src]="currentTouchButtons=='PageUp'? ImgPath.getThePicture('PageUp')[1]:ImgPath.getThePicture('PageUp')[0]"
+            (mouseover)="currentTouchButtons='PageUp'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('PageUp')">
+          <img class="KeyBindStyle" style="margin-left: 4px;"
+            [src]="currentTouchButtons=='Delete'? ImgPath.getThePicture('Delete')[1]:ImgPath.getThePicture('Delete')[0]"
+            (mouseover)="currentTouchButtons='Delete'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Delete')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='End'? ImgPath.getThePicture('End')[1]:ImgPath.getThePicture('End')[0]"
+            (mouseover)="currentTouchButtons='End'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('End')">
+          <img class="KeyBindStyle" style="margin-left: 1px;"
+            [src]="currentTouchButtons=='PageDown'? ImgPath.getThePicture('PageDown')[1]:ImgPath.getThePicture('PageDown')[0]"
+            (mouseover)="currentTouchButtons='PageDown'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('PageDown')">
+
+
+
+        </div>
+        <div id="Numpad" class="KeyBindClass">
+          <div class="KeyBindClassWord">Numpad</div>
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad1'? ImgPath.getThePicture('Numpad1')[1]:ImgPath.getThePicture('Numpad1')[0]"
+            (mouseover)="currentTouchButtons='Numpad1'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad1')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad2'? ImgPath.getThePicture('Numpad2')[1]:ImgPath.getThePicture('Numpad2')[0]"
+            (mouseover)="currentTouchButtons='Numpad2'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad2')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad3'? ImgPath.getThePicture('Numpad3')[1]:ImgPath.getThePicture('Numpad3')[0]"
+            (mouseover)="currentTouchButtons='Numpad3'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad3')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad4'? ImgPath.getThePicture('Numpad4')[1]:ImgPath.getThePicture('Numpad4')[0]"
+            (mouseover)="currentTouchButtons='Numpad4'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad4')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad5'? ImgPath.getThePicture('Numpad5')[1]:ImgPath.getThePicture('Numpad5')[0]"
+            (mouseover)="currentTouchButtons='Numpad5'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad5')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad6'? ImgPath.getThePicture('Numpad6')[1]:ImgPath.getThePicture('Numpad6')[0]"
+            (mouseover)="currentTouchButtons='Numpad6'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad6')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad7'? ImgPath.getThePicture('Numpad7')[1]:ImgPath.getThePicture('Numpad7')[0]"
+            (mouseover)="currentTouchButtons='Numpad7'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad7')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad8'? ImgPath.getThePicture('Numpad8')[1]:ImgPath.getThePicture('Numpad8')[0]"
+            (mouseover)="currentTouchButtons='Numpad8'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad8')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad9'? ImgPath.getThePicture('Numpad9')[1]:ImgPath.getThePicture('Numpad9')[0]"
+            (mouseover)="currentTouchButtons='Numpad9'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad9')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='Numpad0'? ImgPath.getThePicture('Numpad0')[1]:ImgPath.getThePicture('Numpad0')[0]"
+            (mouseover)="currentTouchButtons='Numpad0'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Numpad0')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='NumpadAdd'? ImgPath.getThePicture('NumpadAdd')[1]:ImgPath.getThePicture('NumpadAdd')[0]"
+            (mouseover)="currentTouchButtons='NumpadAdd'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('NumpadAdd')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='NumpadSubtract'? ImgPath.getThePicture('NumpadSubtract')[1]:ImgPath.getThePicture('NumpadSubtract')[0]"
+            (mouseover)="currentTouchButtons='NumpadSubtract'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('NumpadSubtract')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='NumpadMultiply'? ImgPath.getThePicture('NumpadMultiply')[1]:ImgPath.getThePicture('NumpadMultiply')[0]"
+            (mouseover)="currentTouchButtons='NumpadMultiply'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('NumpadMultiply')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='NumpadDivide'? ImgPath.getThePicture('NumpadDivide')[1]:ImgPath.getThePicture('NumpadDivide')[0]"
+            (mouseover)="currentTouchButtons='NumpadDivide'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('NumpadDivide')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='NumpadDecimal'? ImgPath.getThePicture('NumpadDecimal')[1]:ImgPath.getThePicture('NumpadDecimal')[0]"
+            (mouseover)="currentTouchButtons='NumpadDecimal'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('NumpadDecimal')">
+          <br>
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='NumpadEnter'? ImgPath.getThePicture('NumpadEnter')[1]:ImgPath.getThePicture('NumpadEnter')[0]"
+            (mouseover)="currentTouchButtons='NumpadEnter'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('NumpadEnter')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='NumLock'? ImgPath.getThePicture('NumLock')[1]:ImgPath.getThePicture('NumLock')[0]"
+            (mouseover)="currentTouchButtons='NumLock'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('NumLock')">
+        </div>
+
+        <div id="Mouse" class="KeyBindClass">
+          <div class="KeyBindClassWord">Mouse</div>
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='MouseLeft'? ImgPath.getThePicture('MouseLeft')[1]:ImgPath.getThePicture('MouseLeft')[0]"
+            (mouseover)="currentTouchButtons='MouseLeft'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MouseLeft')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='MouseRight'? ImgPath.getThePicture('MouseRight')[1]:ImgPath.getThePicture('MouseRight')[0]"
+            (mouseover)="currentTouchButtons='MouseRight'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MouseRight')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='MouseMiddle'? ImgPath.getThePicture('MouseMiddle')[1]:ImgPath.getThePicture('MouseMiddle')[0]"
+            (mouseover)="currentTouchButtons='MouseMiddle'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MouseMiddle')">
+          <p></p>
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='MouseMoveUp1'? ImgPath.getThePicture('MouseMoveUp1')[1]:ImgPath.getThePicture('MouseMoveUp1')[0]"
+            (mouseover)="currentTouchButtons='MouseMoveUp1'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MouseMoveUp1')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='MouseMoveDown1'? ImgPath.getThePicture('MouseMoveDown1')[1]:ImgPath.getThePicture('MouseMoveDown1')[0]"
+            (mouseover)="currentTouchButtons='MouseMoveDown1'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MouseMoveDown1')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='MouseMoveLeft1'? ImgPath.getThePicture('MouseMoveLeft1')[1]:ImgPath.getThePicture('MouseMoveLeft1')[0]"
+            (mouseover)="currentTouchButtons='MouseMoveLeft1'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MouseMoveLeft1')">
+          <img class="KeyBindStyle"
+            [src]="currentTouchButtons=='MouseMoveRight1'? ImgPath.getThePicture('MouseMoveRight1')[1]:ImgPath.getThePicture('MouseMoveRight1')[0]"
+            (mouseover)="currentTouchButtons='MouseMoveRight1'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('MouseMoveRight1')">
+          <!-- <img class="KeyBindStyle" [src]="currentTouchButtons=='MouseMoveUp3'? ImgPath.getThePicture('MouseMoveUp3')[1]:ImgPath.getThePicture('MouseMoveUp3')[0]"
+          (mouseover)="currentTouchButtons='MouseMoveUp3'" (mouseleave)="currentTouchButtons=''"
+          (click)="setKeyBindingData('MouseMoveUp3')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='MouseMoveDown3'? ImgPath.getThePicture('MouseMoveDown3')[1]:ImgPath.getThePicture('MouseMoveDown3')[0]"
+          (mouseover)="currentTouchButtons='MouseMoveDown3'" (mouseleave)="currentTouchButtons=''"
+          (click)="setKeyBindingData('MouseMoveDown3')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='MouseMoveLeft3'? ImgPath.getThePicture('MouseMoveLeft3')[1]:ImgPath.getThePicture('MouseMoveLeft3')[0]"
+          (mouseover)="currentTouchButtons='MouseMoveLeft3'" (mouseleave)="currentTouchButtons=''"
+          (click)="setKeyBindingData('MouseMoveLeft3')">
+          <img class="KeyBindStyle" [src]="currentTouchButtons=='MouseMoveRight3'? ImgPath.getThePicture('MouseMoveRight3')[1]:ImgPath.getThePicture('MouseMoveRight3')[0]"
+          (mouseover)="currentTouchButtons='MouseMoveRight3'" (mouseleave)="currentTouchButtons=''"
+          (click)="setKeyBindingData('MouseMoveRight3')"> -->
+
+
+
+        </div>
+
+        <div id="KeyBindClass_Disable" class="KeyBindClass">
+          <div class="KeyBindClassWord">Disable</div>
+          <img class="KeyBindStyle" style="margin-left: 5px;"
+            [src]="currentTouchButtons=='Disable'? ImgPath.getThePicture('Disable')[1]:ImgPath.getThePicture('Disable')[0]"
+            (mouseover)="currentTouchButtons='Disable'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Disable')">
+        </div>
+        <div id="KeyBindClass_Default" class="KeyBindClass">
+          <div class="KeyBindClassWord">Default</div>
+          <img class="KeyBindStyle" style="margin-left: 7px;"
+            [src]="currentTouchButtons=='Default'? ImgPath.getThePicture('Default')[1]:ImgPath.getThePicture('Default')[0]"
+            (mouseover)="currentTouchButtons='Default'" (mouseleave)="currentTouchButtons=''"
+            (click)="setKeyBindingData('Default')">
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+  </section>
+
+  <section *ngIf="this.currentPage=='Macro_Nav'" id="SharedPageContent">
+    <section id="Macro_NavOptions" class="page_Options">
+      <!-- [style.background-color]="KeyBoardManager.keyboardOfChoice ==i?'rgb(18, 61, 162)':'rgba(0, 0, 0,0)'"
+      [style.color]="KeyBoardManager.keyboardOfChoice ==i?'rgb(255, 255, 255)':'rgb(159, 163, 170)'" -->
+      <div id="page_OptionsTitle" >
+        Profile
+      </div>
+
+      <div id="MacroFileSelectList" style="margin-top: 60px;height: 95px;">
+        <div class="Shard_OptionItem" *ngFor="let item of KeyBoardManager.keyBoardTemp.macroFiletItem;let i = index"
+          (click)="macroProfileFileLeftClick(item)" (contextmenu)="macroProfileFileRightClick(item,$event)"
+          [style.background-color]="selectedMacroCode==item.selectedMacroCode?'#1240A2':'transparent'"
+          [style.color]="selectedMacroCode==item.selectedMacroCode?'#F5F5F7':'#9FA3AA'">
+
+
+
+          <input class="MacroFileName" [attr.data-mindex]="i" type="text" placeholder="" style="    width: 70%;
+                        position: absolute;
+                        margin-left: 8%;" maxlength="15"
+            [style.visibility]="selectedMacroCode==item.selectedMacroCode&&macroOnEdit?'visible': 'hidden'"
+            [(ngModel)]="MacroManager.onEditMacroName" (blur)="renameMacroFile($event);macroOnEdit=false;"
+            (keyup)="renameMacroFile($event);">
+          &nbsp;&nbsp;&nbsp;{{item.name}}
+        </div>
+
+      </div>
+
+      <div id="divider1" style="position: absolute;
+      top: 154px;
+      width: 216px;
+      margin-left: 16px;
+      height: 1px;
+      background: rgb(159, 163, 170);">
+      </div>
+      <div id="page_OptionsTitle" >
+        Library
+      </div>
+
+      <img src="image/Perixx_Project/Share/AddIcon.png" style="position: absolute;
+      right: 7%;
+      margin-top: 15.5%;" (click)="MacroManager.createFolderFile()">
+      <img src="image/Perixx_Project/Share/ImportIcon.png" style="position: absolute;
+            right:20%;
+            margin-top: 15%;">
+
+      <!-- (click)="currentPage='Macro_Nav'" -->
+      <div *ngIf="MacroManager.getClass().hasFile();" id="MacroFileSelectList" >
+        <div class="Shard_OptionItem" *ngFor="let item of MacroManager.getClass().macroFiletItem;let i = index"
+          (click)="macroFileLeftClick(i)" (contextmenu)="macroFileRightClick(i,$event)"
+          [style.background-color]="selectedMacroCode==item.selectedMacroCode?'#1240A2':'transparent'"
+          [style.color]="selectedMacroCode==item.selectedMacroCode?'#F5F5F7':'#9FA3AA'">
+          <!-- <img [src]="KeyBoardManager.getTarget()==i? ImgPath.Macro_Linking[1]:ImgPath.Macro_Linking[0]"> -->
+          <input class="MacroFileName" [attr.data-mindex]="i" type="text" placeholder="" style="    width: 91%;
+          position: absolute;
+          margin-left: 2%;
+          visibility: hidden;" maxlength="15"
+            [style.visibility]="selectedMacroCode==item.selectedMacroCode&&macroOnEdit?'visible': 'hidden'"
+            [(ngModel)]="MacroManager.onEditMacroName" (blur)="renameMacroFile($event);macroOnEdit=false;"
+            (keyup)="renameMacroFile($event);">
+            <div style="margin-left: 2%;" >{{item.name}}</div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <div class="MiddlePanel">
+      <div id="ContentHeaderText" >Macro Keys</div>
+
+      <div id="MacroKeyboardBlock" class="KeyBoardAreaStyle">
+        <div [style.background-image]="KeyBoardStyle.getTarget().BGImage" class="KeyBoardGraphsStyle">
+        </div>
+        <div *ngFor="let item of KeyBoardStyle.getTarget().keyMapping ;let i = index"
+          [style.background-color]="KeyBoardManager.keyBoardTemp.theBindingCategoryIsMacro(i)?'#F5F5F7':'rgba(0, 0, 0,0)'"
+          data-Macro_Block="5" class="KeyBoard_Block"
+          [style.border-width]="KeyBoardManager.keyBoardTemp.recordAssignBtnIndex==i?'2px':'0px'"
+          (click)="clickMacroInTheAreaOfTheKeyboard(i)" (contextmenu)="rightClickOnTheMacroBindKey(i)"
+          [attr.data-index]="i">
+          <img class="KeyBoardBindImg" alt="" [src]="getKeyBindingIcon(i)">
+        </div>
+      </div>
+    </div>
+    <div class="SelectResponsiveKeys">Select Responsive Keys</div>
+    <div class="RightPanal">
+      <div id="AreaTitle" >
+        Macro Editing
+      </div>
+      <ng-container *ngIf="MacroManager.getClass().hasFile();">
+        <!-- [style.background-color]="MacroManager.onRecord?'rgb(18, 61, 162)':'rgba(0, 0, 0,0)'" -->
+        <img id="RecordIcon" style="position: absolute;
+        top: 70px;
+        left: 26px;z-index: 1112;" [src]="this.MacroManager.onRecord? ImgPath.Recording[1]:ImgPath.Recording[0]"
+          (click)="onRecordClick()" data-identity="startRecord">
+
+          <img id="img_MacroDelete" style="position: absolute;
+          left: 141px;
+          top: 70px;
+          color: rgb(29, 52, 96);" 
+          [src]="ImgPath.img_MacroDelete[0]" (click)="MacroManager.tempMacroContent.deleteSelectMacro()">
+   
+      </ng-container>
+
+      <img *ngIf="MacroManager.getClass().hasFile();" 
+        style="position: absolute;margin-left: 7px;margin-top: 142px;"
+        [src]="MacroManager.tempMacroContent.selectAllDataFlag?ImgPath.macro_Blue_Checked[1]:ImgPath.macro_Blue_Checked[0]"
+        (click)="MacroManager.tempMacroContent.switchSelectAllFlag()">
+
+      <div id="Key" style="color: rgb(29, 52, 96);position: absolute;
+           top: 0px;margin-left: 30px;
+          margin-top: 139px;">
+        Key
+      </div>
+      <div id="Start Time" style="color: rgb(29, 52, 96);position: absolute;
+          top: 0px;    margin-left: 70px;
+          margin-top: 139px;">
+        Start Time
+      </div>
+      <div id="Duration" style="color: rgb(29, 52, 96);position: absolute;
+         top: 0px;margin-left: 164px;
+          margin-top: 139px;">
+        Duration
+      </div>
+
+      <div id="MactoContentList">
+        <div class="MactoContentItem" *ngFor="let item of MacroManager.tempMacroContent.Data;let i = index"
+          [style.color]="MacroManager.tempMacroContent.indexPosition==i?'rgb(159, 163, 170)':'rgb(159, 163, 170)'"
+          (click)="selectMacroSubContent($event,i);">
+
+            <img [src]="item.inTheSelectionList?ImgPath.macro_Gray_Checked[1]:ImgPath.macro_Gray_Checked[0]"
+            (click)="MacroManager.tempMacroContent.selectAllDataFlag=false;">
+    
+
+
+
+          <input type="text" class="KeyCodeText" (keydown)="macroEditkeyCode($event.code,i,$event);"
+            (keyup)="macroEditkeyCode($event.code,i,$event);" [value]="EM.getkeyCodeTxt(item.byKeyCode)"
+            data-identity="KeyCodeText" [readonly]="true">
+
+
+          <input type="text" class="StartTimeText" (keyup)="macroEditStartTime($event,i);"
+            (blur)="macroEditStartTime($event,i);" [value]="item.byStartTime" data-identity="StartTimeText"
+            [disabled]="item.inTheSelectionList ? false : true">
+
+          <input type="text" class="durationText" (keyup)="macroEditduration($event,i);"
+            (blur)="macroEditduration($event,i);" [value]="item.duration" data-identity="durationText"
+            [disabled]="item.inTheSelectionList ? false : true">
+        </div>
+      </div>
+      <div class="ApplyBtn PageApplyBtn"
+        style="position: absolute;bottom: 80px;z-index: 1111;width: 153px;display: flex;height: 38px;margin-left: 40px;justify-content: center;align-items: center;"
+        (click)="MacroManager.tempMacroContent.sortData();"> Refresh
+      </div>
+      <div class="ApplyBtn PageApplyBtn"
+        style="position: absolute;bottom: 24px;z-index: 1111;width: 153px;display: flex;height: 38px;margin-left: 40px;justify-content: center;align-items: center;"
+        (click)="this.loadTemporaryMacroData()"> Apply
+      </div>
+
+
+
+
+    </div>
+
+  </section>
+
+
+  <img (click)="softwareSettingPage=true" id="SWConfigIcon" 
+  [src]="this.currentPage=='ConnectedPage'? ImgPath.SWConfig[0]:ImgPath.SWConfig[1]"
+    style="position: absolute;
+    top: 655px;z-index: 1109;
+    left: 16px;">
+
+</div>

@@ -1,0 +1,55 @@
+.NavigationOption{
+    width: fit-content;
+    height: fit-content;
+    margin-top: 50%;
+}
+
+.Nav_ProjectItem{
+  margin-left: 16px;
+  width: 32px;
+  height:32px;
+}
+
+#NavigationBar{
+  margin-top: 55px;
+  position: absolute;
+  background: #F5F5F7;
+  height: calc(100% - 55px);
+  width: 61px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#NavigationBar::before{
+    content: "";
+    position: absolute;
+    right: 0%;
+    width: 1px;
+    height: 96%;
+    top: 4%;
+    background-color: #9FA3AA;
+}
+
+
+#Nav_Project{
+  position: absolute;
+  height: 55px;
+  width: 302px;
+  display: flex;
+  align-items: center;
+  background: #F5F5F7;
+}
+
+#Nav_Project::before{
+    content: "";
+    position: absolute;
+    bottom: 0%;
+    height: 1px;
+    width: 92%;
+    margin-left: 4%;
+    background-color: rgb(159 163 170);
+}
+
+
+

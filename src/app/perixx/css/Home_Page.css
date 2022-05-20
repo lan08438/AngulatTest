@@ -1,0 +1,37 @@
+.HomePageHeaderText{
+    margin-left: 0px;
+    margin-top: 23px;
+    position: relative;
+}
+.HomePageHeaderLine{
+    margin-left: 0px;
+}
+.ParallelLines{
+    width: 837px;
+    height: 1px;
+    background: rgb(159, 163, 170);
+    margin-left: 0px;
+    margin-top: 20px;
+    
+}
+
+.StorageBoxText{
+    transition: height 2s;
+    height: auto;
+    overflow: hidden;
+    color: rgb(29,52,96);
+    display: flex;
+    width: 100%;
+    margin-top: 14px;
+}
+
+
+.GrayMask{
+    color: rgb(18,64,162);
+    position: absolute;
+    background: rgb(237 238 240 / 70%);
+    height: 100%;
+    width: 100%;
+    z-index: 1110;
+}
+
