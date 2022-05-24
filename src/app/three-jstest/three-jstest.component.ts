@@ -30,13 +30,11 @@ export class ThreeJSTestComponent implements OnInit {
     console.log('%c window.innerWidth:'+window.innerWidth+' window.innerHeight:'+window.innerHeight, 'color:rgb(255,0,0,1)');
 
 
-    const texture = new THREE.TextureLoader().load( 'G:\G-SPY PROJECT\0_JavaScript\Code_AngulatTest_Github\src\app\three-jstest\textures/crate.gif' );
-    //const texture = new THREE.TextureLoader().load( "url('./textures/crate.gif')" );
-    //const texture = new THREE.TextureLoader().load( "./textures/crate.gif" );
+    const texture = new THREE.TextureLoader().load( 'image/3DTextures/crate.gif' );
 
     const geometry = new THREE.BoxGeometry( 200, 200, 200 );
-    //const material = new THREE.MeshBasicMaterial( { map: texture } );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const material = new THREE.MeshBasicMaterial( { map: texture } );
+    //const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 
     this.mesh = new THREE.Mesh( geometry, material );
     this.scene.add( this.mesh );
