@@ -12,6 +12,8 @@ import { DemoListUIComponent } from './DemoListUI/DemoListUI.component';
 import { NumpadKeyboardComponent } from './numpad-keyboard/NumpadKeyboard';
 import { M_NumpadSelectModule } from './M_NumpadSelect/M_NumpadSelect.module';
 import { PerixxComponent } from './perixx/perixx.component';
+import { ThreeJSTestComponent } from './three-jstest/three-jstest.component';
+
 
 // let routerModule = RouterModule.forRoot(routes);
 // routerModule = RouterModule.forRoot(routes, {useHash: true});
@@ -26,6 +28,7 @@ const routes: Routes = [
   { path: 'DemoListUI', component: DemoListUIComponent },
   { path: 'numpad-keyboard', component: NumpadKeyboardComponent },
   { path: 'perixx', component: PerixxComponent },  
+  { path: 'ThreeJSTest', component: ThreeJSTestComponent },
 
 ];
 @NgModule({
@@ -35,6 +38,7 @@ const routes: Routes = [
     DemoListUIComponent,
     NumpadKeyboardComponent,
     PerixxComponent,
+    ThreeJSTestComponent,
   ],
   imports: [
     BrowserModule,
