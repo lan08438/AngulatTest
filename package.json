@@ -28,7 +28,7 @@
     "ng-color": "^4.1.1",
     "rxjs": "~6.2.0",
     "systemjs": "^6.7.1",
-    "three.js": "^0.77.1",
+    "three": "^0.140.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

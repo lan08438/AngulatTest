@@ -1,5 +1,6 @@
 import { Component, OnInit ,ViewChild,ElementRef} from '@angular/core';
-import { THREE } from 'three';
+//import { THREE } from 'three';
+import * as THREE from 'three';
 
 @Component({
   selector: 'app-three-jstest',

@@ -13,6 +13,7 @@ import { NumpadKeyboardComponent } from './numpad-keyboard/NumpadKeyboard';
 import { M_NumpadSelectModule } from './M_NumpadSelect/M_NumpadSelect.module';
 import { PerixxComponent } from './perixx/perixx.component';
 import { ThreeJSTestComponent } from './three-jstest/three-jstest.component';
+import { ThreeGltfsheenComponent } from './three-gltfsheen/three-gltfsheen.component';
 
 
 // let routerModule = RouterModule.forRoot(routes);
@@ -29,7 +30,7 @@ const routes: Routes = [
   { path: 'numpad-keyboard', component: NumpadKeyboardComponent },
   { path: 'perixx', component: PerixxComponent },  
   { path: 'ThreeJSTest', component: ThreeJSTestComponent },
-
+  { path: 'ThreeGltfsheen', component: ThreeGltfsheenComponent },
 ];
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ const routes: Routes = [
     NumpadKeyboardComponent,
     PerixxComponent,
     ThreeJSTestComponent,
+    ThreeGltfsheenComponent,
   ],
   imports: [
     BrowserModule,
