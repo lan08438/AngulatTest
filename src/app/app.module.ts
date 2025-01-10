@@ -14,6 +14,7 @@ import { M_NumpadSelectModule } from './M_NumpadSelect/M_NumpadSelect.module';
 import { PerixxComponent } from './perixx/perixx.component';
 import { ThreeJSTestComponent } from './three-jstest/three-jstest.component';
 import { ThreeGltfsheenComponent } from './three-gltfsheen/three-gltfsheen.component';
+import { DKWebHIDComponent } from './DKWeb-hid/DKWeb-hid.component';
 
 
 // let routerModule = RouterModule.forRoot(routes);
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'perixx', component: PerixxComponent },  
   { path: 'ThreeJSTest', component: ThreeJSTestComponent },
   { path: 'ThreeGltfsheen', component: ThreeGltfsheenComponent },
+  { path: 'DKWeb-hid', component: DKWebHIDComponent },
 ];
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ const routes: Routes = [
     PerixxComponent,
     ThreeJSTestComponent,
     ThreeGltfsheenComponent,
+    DKWebHIDComponent,
   ],
   imports: [
     BrowserModule,
